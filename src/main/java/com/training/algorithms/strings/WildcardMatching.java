@@ -16,6 +16,7 @@ public class WildcardMatching {
             } else if (startIndex != -1) {
                 j = startIndex + 1;
                 i = iIndex + 1;
+                iIndex++;
             } else {
                 return false;
             }
