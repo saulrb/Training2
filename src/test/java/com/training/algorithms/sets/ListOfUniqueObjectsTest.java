@@ -31,6 +31,8 @@ class ListOfUniqueObjectsTest {
 
   @Test
   void getUniqueObjects() {
-    assertEquals(7, listOfUniqueObjects.getUniqueObjects(items).size());
+    var uniqueObjects = listOfUniqueObjects.getUniqueObjects(items);
+    uniqueObjects.forEach(System.out::println);
+    assertEquals(7, uniqueObjects.size());
   }
 }

@@ -155,4 +155,28 @@ public class MyLinkedList {
         }
     }
 
+
+    public Node findMiddleNode() {
+        if (length == 0) return null;
+        if (length == 1) return head;
+        if (length % 2 == 0) {
+            return get((length / 2) + 1);
+        }
+        var middleIndex = (int) Math.floor(length / 2);
+        return get(middleIndex);
+    }
+
+    public boolean hasLoop() {
+        if (length == 0) return false;
+        if (length == 1) return false;
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.getNext() != null) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+            if (slow == fast) return true;
+        }
+        return false;
+    }
+
 }

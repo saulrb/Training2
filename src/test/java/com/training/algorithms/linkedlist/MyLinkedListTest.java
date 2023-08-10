@@ -92,4 +92,54 @@ class MyLinkedListTest {
         subject.printList();
         assertEquals(true,true);
     }
+
+    @Test
+    void testFindMiddleNode(){
+        subject.append(1);
+        subject.append(2);
+        subject.append(3);
+        subject.append(4);
+        assertEquals(2,subject.findMiddleNode().getValue());
+    }
+
+    @Test
+    void testFindMiddleNodeOdd(){
+        subject.append(1);
+        subject.append(2);
+        subject.append(3);
+        subject.append(4);
+        subject.append(5);
+        assertEquals(4,subject.findMiddleNode().getValue());
+    }
+
+    @Test
+    void testFindMiddleNodeEmpty(){
+        subject.removeFirst();
+        assertEquals(null,subject.findMiddleNode());
+    }
+
+    @Test
+    void testFindMiddleNodeOneOnly(){
+        assertEquals(0,subject.findMiddleNode().getValue());
+    }
+
+    @Test
+    void testDoesnotHasALoop(){
+        subject.append(1);
+        subject.append(2);
+        subject.append(3);
+        subject.append(4);
+        assertFalse(subject.hasLoop());
+    }
+
+    @Test
+    void testDoesHasALoop(){
+        subject.append(1);
+        subject.append(2);
+        subject.append(3);
+        subject.append(4);
+        subject.get(3).setNext(subject.get(1));
+        assertTrue(subject.hasLoop());
+    }
+
 }
