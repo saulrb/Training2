@@ -129,8 +129,9 @@ public class MyLinkedList {
     System.out.println("Tail:" + tail.getValue());
   }
 
-  public void getLength() {
+  public int getLength() {
     System.out.println("Length:" + length);
+    return length;
   }
 
   public Node remove(int index) {
@@ -216,5 +217,57 @@ public class MyLinkedList {
       head = prev;
     }
     tail.setNext(curr);
+  }
+
+  public void partitionList(int i) {
+    Node beforeStart = null;
+    Node beforeEnd = null;
+    Node afterStart = null;
+    Node afterEnd = null;
+    Node curr = head;
+    while (curr != null) {
+      Node next = curr.getNext();
+      curr.setNext(null);
+      if (curr.getValue() < i) {
+        if (beforeStart == null) {
+          beforeStart = curr;
+          beforeEnd = beforeStart;
+        } else {
+          beforeEnd.setNext(curr);
+          beforeEnd = curr;
+        }
+      } else {
+        if (afterStart == null) {
+          afterStart = curr;
+          afterEnd = afterStart;
+        } else {
+          afterEnd.setNext(curr);
+          afterEnd = curr;
+        }
+      }
+      curr = next;
+    }
+    if (beforeStart == null) {
+      head = afterStart;
+    } else {
+      beforeEnd.setNext(afterStart);
+      head = beforeStart;
+    }
+  }
+
+  public void removeDuplicates() {
+    Node curr = head;
+    while (curr != null) {
+      Node runner = curr;
+      while (runner.getNext() != null) {
+        if (runner.getNext().getValue() == curr.getValue()) {
+          runner.setNext(runner.getNext().getNext());
+          length--;
+        } else {
+          runner = runner.getNext();
+        }
+      }
+      curr = curr.getNext();
+    }
   }
 }

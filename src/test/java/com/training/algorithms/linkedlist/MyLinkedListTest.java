@@ -159,15 +159,60 @@ class MyLinkedListTest {
 
   @Test
   void reverseBetween() {
-      subject.append(1);
-      subject.append(2);
-      subject.append(3);
-      subject.append(4);
-      subject.append(5);
-      subject.printList();
-      subject.reverseBetween(2, 4);
-      subject.printList();
-      assertEquals(3, subject.get(1).getValue());
+    subject.append(1);
+    subject.append(2);
+    subject.append(3);
+    subject.append(4);
+    subject.append(5);
+    subject.printList();
+    subject.reverseBetween(2, 4);
+    subject.printList();
+    assertEquals(3, subject.get(1).getValue());
   }
 
+  @Test
+  void partitionList() {
+    subject.append(1);
+    subject.append(4);
+    subject.append(3);
+    subject.append(2);
+    subject.append(5);
+    subject.append(2);
+    subject.printList();
+    subject.partitionList(3);
+    subject.printList();
+    assertEquals(1, subject.get(1).getValue());
+  }
+
+  @Test
+  void removeDuplicates() {
+    subject.append(1);
+    subject.append(1);
+    subject.append(2);
+    subject.append(3);
+    subject.append(3);
+    subject.append(4);
+    subject.append(5);
+    subject.append(5);
+    subject.printList();
+    subject.removeDuplicates();
+    subject.printList();
+    assertEquals(6, subject.getLength());
+  }
+
+  @Test
+  void removeDuplicates2() {
+    subject.append(1);
+    subject.append(2);
+    subject.append(3);
+    subject.append(4);
+    subject.append(5);
+    subject.append(1);
+    subject.append(2);
+    subject.append(3);
+    subject.printList();
+    subject.removeDuplicates();
+    subject.printList();
+    assertEquals(6, subject.getLength());
+  }
 }
