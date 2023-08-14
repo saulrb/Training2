@@ -30,4 +30,21 @@ class DoubleLinkedListTest {
     assertEquals(2, subject.getTail().value);
     assertEquals(2, subject.getLength());
   }
+
+
+  @Test
+  void RemoveLastItem() {
+    subject.append(2);
+    subject.append(3);
+    subject.append(4);
+    subject.printList();
+    assertEquals(1, subject.getHead().value);
+    assertEquals(4, subject.getTail().value);
+    assertEquals(4, subject.getLength());
+    subject.remove(4);
+    subject.printList();
+    assertEquals(1, subject.getHead().value);
+    assertEquals(3, subject.getTail().value);
+    assertEquals(3, subject.getLength());
+  }
 }
