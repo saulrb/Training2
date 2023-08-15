@@ -30,4 +30,16 @@ public class Items {
     public String toString() {
         return String.format("Items{name=%s, quantity=%d, price=%f, description=%s}", name, quantity, price, description);
     }
+
+  public int getQuantity() {
+        return quantity;
+  }
+
+  public String getName() {
+        return name;
+  }
+
+  public double getPrice() {
+        return price;
+  }
 }
