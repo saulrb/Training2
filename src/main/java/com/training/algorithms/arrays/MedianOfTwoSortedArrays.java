@@ -1,6 +1,5 @@
 package com.training.algorithms.arrays;
 
-import java.util.List;
 
 public class MedianOfTwoSortedArrays {
 
@@ -63,7 +62,6 @@ public class MedianOfTwoSortedArrays {
                     merged[i] = arr2[m];
                 }
             }
-
         }
         return merged;
     }

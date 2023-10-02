@@ -25,11 +25,14 @@ public class StreamsUses {
   }
 
   public List<Integer> getLengths() {
-    return words.stream().map(String::length).toList();
+    return words.stream().map(String::length).collect(Collectors.toList());
   }
 
   public List<String> getUniqueLetters() {
-    return words.stream().flatMap(word -> Arrays.stream(word.split(""))).distinct().toList();
+    return words.stream()
+        .flatMap(word -> Arrays.stream(word.split("")))
+        .distinct()
+        .collect(Collectors.toList());
   }
 
   public List<String> getUniqueLetters2() {
@@ -54,7 +57,6 @@ public class StreamsUses {
         .map(item -> item.getName().toUpperCase())
         .collect(Collectors.toList());
   }
-
 
   public double getMinPriceItem() {
     return itemsList.parallelStream().mapToDouble(Items::getPrice).reduce(Double::min).orElse(0);
