@@ -1,9 +1,9 @@
 package com.training.algorithms.arrays;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SecondLargestTest {
 
@@ -18,6 +18,11 @@ class SecondLargestTest {
   @Test
   void find() {
         assertEquals(SecondLargest.find(array), secondLargest);
+  }
+
+  @Test
+  void find2() {
+    assertEquals(SecondLargest.find2(array), secondLargest);
   }
 
 }
