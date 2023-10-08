@@ -215,4 +215,16 @@ class MyLinkedListTest {
     subject.printList();
     assertEquals(6, subject.getLength());
   }
+
+  @Test
+  void convertFromBinaryToDecimal() {
+    subject.append(1);
+    subject.append(0);
+    subject.append(1);
+    subject.append(0);
+    subject.append(1);
+    subject.printList();
+    int value = subject.convertFromBinaryToDecimal();
+    assertEquals(21, value);
+  }
 }

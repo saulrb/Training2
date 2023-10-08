@@ -7,12 +7,11 @@ public class WordLadder2 {
     List<List<String>> result = new ArrayList<>();
     LinkedList<WordNode2> queue = new LinkedList<>();
     HashSet<String> visited = new HashSet<>();
-    HashSet<String> unvisited = new HashSet<>();
+    HashSet<String> unvisited = new HashSet<>(dictionary);
 
     queue.add(new WordNode2(start, 1, null));
     dictionary.add(end);
     int minStep = 0;
-    unvisited.addAll(dictionary);
     int preNumSteps = 0;
     while (!queue.isEmpty()) {
       WordNode2 top = queue.remove();

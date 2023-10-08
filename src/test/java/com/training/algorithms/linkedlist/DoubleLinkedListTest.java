@@ -31,7 +31,6 @@ class DoubleLinkedListTest {
     assertEquals(2, subject.getLength());
   }
 
-
   @Test
   void RemoveLastItem() {
     subject.append(2);
@@ -46,5 +45,37 @@ class DoubleLinkedListTest {
     assertEquals(1, subject.getHead().value);
     assertEquals(3, subject.getTail().value);
     assertEquals(3, subject.getLength());
+  }
+
+  @Test
+  void swapFirstAndLast() {
+    subject.append(2);
+    subject.append(3);
+    subject.append(4);
+    subject.printList();
+    assertEquals(1, subject.getHead().value);
+    assertEquals(4, subject.getTail().value);
+    assertEquals(4, subject.getLength());
+    subject.swapFirstAndLast();
+    subject.printList();
+    assertEquals(4, subject.getHead().value);
+    assertEquals(1, subject.getTail().value);
+    assertEquals(4, subject.getLength());
+  }
+
+  @Test
+  void reverseDoubleLinkedList() {
+    subject.append(2);
+    subject.append(3);
+    subject.append(4);
+    subject.printList();
+    assertEquals(1, subject.getHead().value);
+    assertEquals(4, subject.getTail().value);
+    assertEquals(4, subject.getLength());
+    subject.reverse();
+    subject.printList();
+    assertEquals(4, subject.getHead().value);
+    assertEquals(1, subject.getTail().value);
+    assertEquals(4, subject.getLength());
   }
 }

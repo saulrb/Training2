@@ -202,10 +202,41 @@ public class DoubleLinkedList {
     this.tail = first;
   }
 
-  public void printCharacter(String value ) {
+  public void printCharacter(String value) {
     System.out.println(System.getProperty("file.encoding"));
     System.out.print("[");
     System.out.print(value);
     System.out.println("]");
+  }
+
+  public void swapFirstAndLast() {
+    if (length >= 2) {
+      MyNode first = this.head;
+      MyNode last = this.tail;
+      first.prev = last.prev;
+      last.next = first.next;
+      first.next.prev = last;
+      last.prev.next = first;
+      first.next = null;
+      last.prev = null;
+      this.head = last;
+      this.tail = first;
+    }
+  }
+
+  public void reverse() {
+    if (length >= 2) {
+      MyNode current = this.tail;
+      MyNode temp = null;
+      while (current != null) {
+        temp = current.prev;
+        current.prev = current.next;
+        current.next = temp;
+        current = temp;
+      }
+      temp = this.head;
+      this.head = this.tail;
+      this.tail = temp;
+    }
   }
 }

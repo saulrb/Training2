@@ -270,4 +270,16 @@ public class MyLinkedList {
       curr = curr.getNext();
     }
   }
+
+  public int convertFromBinaryToDecimal() {
+    int result = 0;
+    Node curr = head;
+    int pow = this.getLength() - 1;
+    while (curr != null) {
+      result += curr.getValue() * (int) (Math.pow(2, pow));
+      pow--;
+      curr = curr.getNext();
+    }
+    return result;
+  }
 }
